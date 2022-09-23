@@ -3,6 +3,7 @@ import './App.css';
 import hotBg from './assets/hot.jpg';
 import coldBg from './assets/cold.jpg';
 import logo from './assets/logo.png';
+import Descriptions from './components/Descriptions/Descriptions';
 
 const App = () => {
   return (
@@ -27,6 +28,7 @@ const App = () => {
           </div>
 
           {/* Bottom Description */}
+          <Descriptions></Descriptions>
         </div>
       </div>
     </div>
