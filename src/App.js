@@ -7,23 +7,25 @@ import Descriptions from './components/Descriptions/Descriptions';
 import { getFormattedWeatherData } from './WeatherService';
 
 const App = () => {
-  let [units, setUnits]=useState('metric');
-  const[city, setCity]=useState(null);
+//============================================== Hooks ==============================================
+  const [units, setUnits]=useState('metric');
+  const [city, setCity]=useState(null);
   const [info, setInfo]=useState([]);
   useEffect(()=>{
     fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=2b67a6e7d72ce1a7a7c5eae9874cbe8b&units=${units}`)
       .then(res=>res.json())
       .then(data=>setInfo(data))    
   },[units,city]);
+// ====================================================================================================
 
   const {icon, description} = info.weather?info.weather[0]:"error";
   const {temp, feels_like, temp_min, temp_max, pressure, humidity} = info.main ? info.main : "error";
   const {country} = info.sys ? info.sys : " ";
   const iconURL =icon?`https://openweathermap.org/img/wn/${icon}@2x.png`:logo;
-  // const iconURL =`https://openweathermap.org/img/wn/${icon}@2x.png`?`https://openweathermap.org/img/wn/${icon}@2x.png`:logo;
   const finalTemp = temp?temp.toFixed(0):" ";
   const feelingTemp = feels_like?feels_like.toFixed(0):" ";
 
+//============================================ Functions ============================================
   const changeUnit=(e)=>{
     const button = e.currentTarget;
     const currentUnit = button.innerText.slice(1);
@@ -32,24 +34,25 @@ const App = () => {
     button.innerText = isCelcius?"°F":"°C";
     setUnits(isCelcius?"metric":"imperial");
   }
+
   const enteredCity=(e)=>{
     setCity(e.target.value);
-    // console.log(city);
   }
-
+// ====================================================================================================
  
   return (
     <div className='app' style={{backgroundImage: `url(${coldBg})`}}>
       <div className="overlay">
         <div className="container">
+          {/*====================================== Top Part ======================================*/}
           <div className="section section__inputs">
-            <input onChange={enteredCity} type="text" defaultValue={"Dhaka"} name='city' placeholder='Enter City...'/>
+            <input onChange={enteredCity} type="text" name='city' placeholder='Enter City...'/>
             <button onClick={(e)=>changeUnit(e)}>°{units==='metric'?"F":"C"}</button>
           </div>
 
           <div className="section section__temperature">
             <div className="icon">
-              <h3><span>{info.name},</span> {country}</h3>
+              <h3><span>{info.name}</span>{country?",":" "}<span>{country}</span></h3>
               <img src={iconURL}/>
               <div className="weather-description">
                 <h3>{description}</h3>
@@ -62,7 +65,7 @@ const App = () => {
             </div>
           </div>
 
-          {/* Bottom Description */}
+          {/*================================= Bottom Description =================================*/}
           <Descriptions></Descriptions>
         </div>
       </div>
