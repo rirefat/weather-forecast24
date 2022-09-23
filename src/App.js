@@ -17,7 +17,7 @@ const App = () => {
           <div className="section section__temperature">
             <div className="icon">
               <h3>London, GB</h3>
-              <img src={logo} alt="weather icon" className='dummy-img'/>
+              <img src="https://www.freeiconspng.com/thumbs/weather-icon-png/weather-icon-png-8.png" alt="weather icon" className='dummy-img'/>
               <h3>Cloudy</h3>
             </div>
 

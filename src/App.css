@@ -23,6 +23,46 @@
     background-color: var(--background-overlay);
 }
 
+.container{
+    max-width: 800px;
+    margin: auto;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    padding: 1rem;
+}
+
+/* Top Section */
+.section{
+    width: 100%;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    color: white;
+}
+
+.section__inputs, .section__temperature{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--section-overlay);
+}
+
+.section__inputs>input{
+    border: 0.8px solid whitesmoke;
+    border-radius: 0.5rem;
+    background-color: transparent;
+    color: white;
+    padding: 0.5rem;
+    font-size: 20px;
+    font-weight: 200;
+}
+
+.section__inputs>input:focus{
+    outline: none;
+}
+
 .dummy-img{
-    width: 5%;
+    width: 15%;
 }
