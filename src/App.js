@@ -25,7 +25,7 @@ const App = () => {
   const {temp, feels_like, temp_min, temp_max, pressure, humidity} = info.main ? info.main : "error";
   const {country} = info.sys ? info.sys : "error";
   const iconURL =`https://openweathermap.org/img/wn/${icon}@2x.png`;
-  const finalTemp = temp.toFixed(0);
+  const finalTemp = temp?temp.toFixed(0):"error";
 
 
   return (
