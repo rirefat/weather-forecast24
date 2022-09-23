@@ -3,6 +3,10 @@
     --background-overlay: rgba(0,0,0,0.3);
 }
 
+.dummy-img{
+    width: 15%;
+}
+
 *{
     margin: 0;
     padding: 0;
@@ -63,6 +67,33 @@
     outline: none;
 }
 
-.dummy-img{
-    width: 15%;
+.section__inputs button{
+    padding: 10px 50px;
+    border: none;
+    border-radius: 00.5rem;
+    font-size: 20px;
+    font-weight: 500;
+    background-color: rgb(255, 255, 255);
+    cursor: pointer;
+}
+
+.section__inputs button:hover{
+    background-color: lightgrey;
+}
+
+.icon{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon h3{
+    font-size: 15px;
+    font-weight: 200;
+    text-transform: capitalize;
+}
+
+.temperature h1{
+    font-size: 60px;
 }
