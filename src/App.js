@@ -10,10 +10,10 @@ const App = () => {
   let [units, setUnits]=useState('metric');
   const [info, setInfo]=useState([]);
   useEffect(()=>{
-    fetch('https://api.openweathermap.org/data/2.5/weather?q=dhaka&appid=2b67a6e7d72ce1a7a7c5eae9874cbe8b&units=metric')
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=dhaka&appid=2b67a6e7d72ce1a7a7c5eae9874cbe8b&units=${units}`)
       .then(res=>res.json())
       .then(data=>setInfo(data))    
-  },[]);
+  },[units]);
 
   const {icon, description} = info.weather?info.weather[0]:"error";
   const {temp, feels_like, temp_min, temp_max, pressure, humidity} = info.main ? info.main : "error";
