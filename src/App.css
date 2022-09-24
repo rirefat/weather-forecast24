@@ -120,3 +120,35 @@ img:hover{
 .temperature h1{
     font-size: 40px;
 }
+
+@media screen and (max-width:530px){
+    /* .app{
+        height: 100%;
+    } */
+    .section__inputs{
+        margin-bottom: 0.75rem;
+    }
+    .section__temperature img{
+        height: 3rem;
+        width: 3rem;
+    }
+}
+
+@media screen and (max-width:500px){
+    .app{
+        height: 100%;
+    }
+    .section__inputs{
+        flex-direction: column;
+    }
+    .section__inputs input{
+        margin-bottom: 0.75rem;
+        text-align: center;
+    }
+}
+
+@media screen and (max-width:370px){
+    .app{
+        height: 120vh;
+    }
+}

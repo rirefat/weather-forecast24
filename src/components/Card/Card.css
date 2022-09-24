@@ -22,8 +22,14 @@
     text-transform: capitalize;
 }
 
-@media screen and (max-width:1024px) {
-   .section__description{
-        grid-template-columns: 1fr 1fr;
-   }
+@media screen and (max-width:530px){
+    .card{
+        margin-bottom: 0.5rem;
+    }
+    .card small{
+        font-size: 12px;
+    }
+    .card h2{
+        font-size: 16px;
+    }
 }
