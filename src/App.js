@@ -78,6 +78,7 @@ const App = () => {
             pressure={pressure}
             humidity={humidity}
             speed={speed}
+            units={units}
           ></Descriptions>
         </div>
       </div>
