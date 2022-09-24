@@ -2,36 +2,51 @@ import React from 'react';
 import './Descriptions.css';
 import { FiArrowDown } from "react-icons/fi";
 
-const Descriptions = () => {
+const Descriptions = (props) => {
+    const {feelingTemp, maxTemp, minTemp, pressure, humidity, speed}=props;
     return (
         <div className='section section__description'>
             <div className="card">
                 <div className="desctiption__card-icon">
                     <FiArrowDown></FiArrowDown>
-                    <small>min</small>
+                    <small>Feels Like</small>
                 </div>
-                <h2>32°C</h2>
+                <h2>{feelingTemp}°C</h2>
             </div>
             <div className="card">
                 <div className="desctiption__card-icon">
                     <FiArrowDown></FiArrowDown>
-                    <small>min</small>
+                    <small>Min Temperature</small>
                 </div>
-                <h2>32°C</h2>
+                <h2>{minTemp}°C</h2>
             </div>
             <div className="card">
                 <div className="desctiption__card-icon">
                     <FiArrowDown></FiArrowDown>
-                    <small>min</small>
+                    <small>Max Temperature</small>
                 </div>
-                <h2>32°C</h2>
+                <h2>{maxTemp}°C</h2>
             </div>
             <div className="card">
                 <div className="desctiption__card-icon">
                     <FiArrowDown></FiArrowDown>
-                    <small>min</small>
+                    <small>Pressure</small>
                 </div>
-                <h2>32°C</h2>
+                <h2>{pressure}hPa</h2>
+            </div>
+            <div className="card">
+                <div className="desctiption__card-icon">
+                    <FiArrowDown></FiArrowDown>
+                    <small>Humidity</small>
+                </div>
+                <h2>{humidity}%</h2>
+            </div>
+            <div className="card">
+                <div className="desctiption__card-icon">
+                    <FiArrowDown></FiArrowDown>
+                    <small>Wind Speed</small>
+                </div>
+                <h2>{speed}m/s</h2>
             </div>
         </div>
     );

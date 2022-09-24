@@ -19,11 +19,16 @@ const App = () => {
 // ====================================================================================================
 
   const {icon, description} = info.weather?info.weather[0]:"error";
-  const {temp, feels_like, temp_min, temp_max, pressure, humidity} = info.main ? info.main : "error";
+  const {temp, feels_like, temp_min, temp_max, pressure, humidity} = info.main ? info.main : " ";
+  const {speed} = info.wind?info.wind:" ";
   const {country} = info.sys ? info.sys : " ";
   const iconURL =icon?`https://openweathermap.org/img/wn/${icon}@2x.png`:logo;
   const finalTemp = temp?temp.toFixed(0):" ";
   const feelingTemp = feels_like?feels_like.toFixed(0):" ";
+  const maxTemp = temp_max?temp_max.toFixed(0):" ";
+  const minTemp = temp_min?temp_min.toFixed(0):" ";
+
+  console.log(speed)
 
 //============================================ Functions ============================================
   const changeUnit=(e)=>{
@@ -66,7 +71,14 @@ const App = () => {
           </div>
 
           {/*================================= Bottom Description =================================*/}
-          <Descriptions></Descriptions>
+          <Descriptions 
+            feelingTemp={feelingTemp}
+            maxTemp={maxTemp}
+            minTemp={minTemp}
+            pressure={pressure}
+            humidity={humidity}
+            speed={speed}
+          ></Descriptions>
         </div>
       </div>
     </div>
