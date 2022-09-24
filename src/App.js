@@ -95,6 +95,7 @@ console.log(bg)
           ></Descriptions>
         </div>
       </div>
+      {/* <footer>Developed By <a href="https://rirefat.netlify.app/">Rafiul Islam Refat</a> || 2022</footer> */}
     </div>
   );
 };
