@@ -1,12 +1,60 @@
 import React from 'react';
 import './Descriptions.css';
 import { FiArrowDown } from "react-icons/fi";
+import { IoHappyOutline } from "react-icons/io";
+import { BsWind,BsSortUpAlt,BsSortDown } from "react-icons/bs";
+import { MdCompress } from "react-icons/md";
+import { WiHumidity } from "react-icons/wi";
 
 const Descriptions = (props) => {
-    const {feelingTemp, maxTemp, minTemp, pressure, humidity, speed, units}=props;
-    const tempUnit = units==="metric"?"°C":"°F";
-    const speedUnit = units==="metric"?"m/s":"m/h";
-    console.log(units)
+    const {feelingTemp, maxTemp, minTemp, pressure, humidity, speed, tempUnit, speedUnit}=props;
+
+    const data=[
+        {
+            id:1,
+            icon: <IoHappyOutline/>,
+            title:"Feels Like",
+            data:feelingTemp,
+            unit: tempUnit
+        },
+        {
+            id:2,
+            icon: <BsSortDown/>,
+            title:"Minimum Temperature",
+            data:feelingTemp,
+            unit: tempUnit
+        },
+        {
+            id:3,
+            icon: <BsSortUpAlt/>,
+            title:"Maximum Temperature",
+            data:feelingTemp,
+            unit: tempUnit
+        },
+        {
+            id:4,
+            icon: <MdCompress/>,
+            title:"Pressure",
+            data:feelingTemp,
+            unit: tempUnit
+        },
+        {
+            id:5,
+            icon: <WiHumidity/>,
+            title:"Humidity",
+            data:feelingTemp,
+            unit: tempUnit
+        },
+        {
+            id:6,
+            icon: <BsWind/>,
+            title:"Wind Speed",
+            data:feelingTemp,
+            unit: tempUnit
+        },
+    ]
+
+
     return (
         <div className='section section__description'>
             <div className="card">

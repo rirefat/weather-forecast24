@@ -28,6 +28,10 @@ const App = () => {
   const maxTemp = temp_max?temp_max.toFixed(0):" ";
   const minTemp = temp_min?temp_min.toFixed(0):" ";
 
+  
+  const tempUnit = units==="metric"?"°C":"°F";
+  const speedUnit = units==="metric"?"m/s":"m/h";
+
   console.log(speed)
 
 //============================================ Functions ============================================
@@ -78,7 +82,8 @@ const App = () => {
             pressure={pressure}
             humidity={humidity}
             speed={speed}
-            units={units}
+            tempUnit={tempUnit}
+            speedUnit={speedUnit}
           ></Descriptions>
         </div>
       </div>
