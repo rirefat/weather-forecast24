@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './App.css';
 import hotBg from './assets/hot.jpg';
 import coldBg from './assets/cold.jpg';
+import normalBg from './assets/normal.jpg';
 import logo from './assets/logo.png';
 import Descriptions from './components/Descriptions/Descriptions';
 import { getFormattedWeatherData } from './WeatherService';
@@ -11,6 +12,7 @@ const App = () => {
   const [units, setUnits]=useState('metric');
   const [city, setCity]=useState(null);
   const [info, setInfo]=useState([]);
+  const [bg, setBg]=useState(normalBg);
   useEffect(()=>{
     fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=2b67a6e7d72ce1a7a7c5eae9874cbe8b&units=${units}`)
       .then(res=>res.json())
@@ -18,7 +20,7 @@ const App = () => {
   },[units,city]);
 // ====================================================================================================
 
-  const {icon, description} = info.weather?info.weather[0]:"error";
+  const {icon, description, main} = info.weather?info.weather[0]:"error";
   const {temp, feels_like, temp_min, temp_max, pressure, humidity} = info.main ? info.main : " ";
   const {speed} = info.wind?info.wind:" ";
   const {country} = info.sys ? info.sys : " ";
@@ -28,7 +30,7 @@ const App = () => {
   const maxTemp = temp_max?temp_max.toFixed(0):" ";
   const minTemp = temp_min?temp_min.toFixed(0):" ";
 
-  
+  // const setBg = finalTemp=>'5'?`url(${hotBg})`:`url(${coldBg})`;
   const tempUnit = units==="metric"?"°C":"°F";
   const speedUnit = units==="metric"?"m/s":"m/h";
 
@@ -48,9 +50,15 @@ const App = () => {
     setCity(e.target.value);
   }
 // ====================================================================================================
+
+// =================================== Dynamic Background =============================================
+
+// ====================================================================================================
+
+console.log(bg)
  
   return (
-    <div className='app' style={{backgroundImage: `url(${coldBg})`}}>
+    <div className='app' style={{backgroundImage: `url(${bg})`}}>
       <div className="overlay">
         <div className="container">
           {/*====================================== Top Part ======================================*/}
@@ -64,8 +72,8 @@ const App = () => {
               <h3><span>{info.name}</span>{country?",":" "}<span>{country}</span></h3>
               <img src={iconURL}/>
               <div className="weather-description">
-                <h3>{description}</h3>
-                <p>Feels Like {feelingTemp}°{units==='metric'?"C":"F"}</p>
+                <h3>{main}</h3>
+                <p>{description}</p>
               </div>
             </div>
 
