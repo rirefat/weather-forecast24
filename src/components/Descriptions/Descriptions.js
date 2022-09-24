@@ -1,18 +1,19 @@
 import React from 'react';
 import './Descriptions.css';
 import { FiArrowDown } from "react-icons/fi";
-import { IoHappyOutline } from "react-icons/io";
+import { BiHappy } from "react-icons/bi";
 import { BsWind,BsSortUpAlt,BsSortDown } from "react-icons/bs";
 import { MdCompress } from "react-icons/md";
 import { WiHumidity } from "react-icons/wi";
+import Card from '../Card/Card';
 
 const Descriptions = (props) => {
-    const {feelingTemp, maxTemp, minTemp, pressure, humidity, speed, tempUnit, speedUnit}=props;
+    const {feelingTemp, maxTemp, minTemp, pressure, humidity, tempUnit, speedUnit}=props;
 
-    const data=[
+    const datas=[
         {
             id:1,
-            icon: <IoHappyOutline/>,
+            icon: <BiHappy/>,
             title:"Feels Like",
             data:feelingTemp,
             unit: tempUnit
@@ -21,43 +22,46 @@ const Descriptions = (props) => {
             id:2,
             icon: <BsSortDown/>,
             title:"Minimum Temperature",
-            data:feelingTemp,
+            data:minTemp,
             unit: tempUnit
         },
         {
             id:3,
             icon: <BsSortUpAlt/>,
             title:"Maximum Temperature",
-            data:feelingTemp,
+            data:maxTemp,
             unit: tempUnit
         },
         {
             id:4,
             icon: <MdCompress/>,
             title:"Pressure",
-            data:feelingTemp,
-            unit: tempUnit
+            data:pressure,
+            unit: "hPa"
         },
         {
             id:5,
             icon: <WiHumidity/>,
             title:"Humidity",
-            data:feelingTemp,
-            unit: tempUnit
+            data:humidity,
+            unit: "%"
         },
         {
             id:6,
             icon: <BsWind/>,
             title:"Wind Speed",
             data:feelingTemp,
-            unit: tempUnit
+            unit: speedUnit
         },
-    ]
+    ];
 
 
     return (
         <div className='section section__description'>
-            <div className="card">
+            {
+                datas.map(data=><Card key={data.id} data={data}></Card>)
+            }
+            {/* <div className="card">
                 <div className="desctiption__card-icon">
                     <FiArrowDown></FiArrowDown>
                     <small>Feels Like</small>
@@ -98,7 +102,7 @@ const Descriptions = (props) => {
                     <small>Wind Speed</small>
                 </div>
                 <h2>{speed} {speedUnit}</h2>
-            </div>
+            </div> */}
         </div>
     );
 };
