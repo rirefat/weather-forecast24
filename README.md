@@ -6,5 +6,6 @@ This is a weather app where you will get current weather forecast information of
 - React Hook
 - React Icons 
 - Material UI
+- Openweathermap API
 
 Live Website : [https://weather-forecast24.netlify.app/](https://weather-forecast24.netlify.app/)
